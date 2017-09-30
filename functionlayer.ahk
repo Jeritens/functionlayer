@@ -22,7 +22,7 @@ LWin::
 return
 
 ;Disable win+space
-#Space::
+<#Space::
 	send {Space}
 return
 
@@ -244,7 +244,7 @@ return
 
 ; switch default audio device todos
 
-#a:: 
+<#a:: 
   toggle:=!toggle ;toggles up and down states. 
   Run, mmsys.cpl 
   WinWait,Sound ; Change "Sound" to the name of the window in your local language 
