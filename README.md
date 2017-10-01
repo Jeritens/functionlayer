@@ -12,7 +12,7 @@ Easy customizable
 + previous, pause/play, next (q,w,f)
 + capslock (right shift)
 + ( ͡° ͜ʖ ͡° ) (;lenny;)
-+ ¯\\_(ツ)_/¯ (;shrug;)
++ ¯\\\_(ツ)\_/¯ (;shrug;)
 
 ## How to set it for start up:
 + Save the script, a copy or a shortcut in C:\Users\ `YOUR_USERNAME` \AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
