@@ -1,6 +1,7 @@
 # functionlayer
-A function layer for the keyboard for colmak layout with Autohotkey. (Based on Pok3r function layer)  
-The left windows key is used as the function key.
+A keyboard function layer for colmak layout with Autohotkey. (Based on Pok3r function layer)  
+The left windows key is used as the function key.  
+Easy customizable
 
 ## Features:
 + arrow keys (u,n,e,i)
@@ -22,5 +23,4 @@ The left windows key is used as the function key.
 + set the value of DisableLockWorkstation to 1
 + done
 
-### TODO
-+ Set easy variables for customization
+
