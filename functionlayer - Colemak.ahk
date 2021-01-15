@@ -11,18 +11,19 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ; ======== key mapping change this for your preferences ========
 
-fn = <!	
-fnNonModifier = LAlt			
+fn = <# 				; needs to be a modifier (Win key is best use <# for left Win, ># for right Win)
+fnNonModifier = Lwin	; to disable fn key only. (needs to be no modifier version)
 toggleKey = Esc
 
-arrowUp  	= i
-arrowDown  	= k
-arrowLeft  	= j
-arrowRight	= l
+arrowUp  	= u
+arrowDown  	= e
+arrowLeft  	= n
+arrowRight	= i
 homeKey 	= h
-endKey 		= n
-pageUp 		= u
-pageDown	= o
+endKey 		= k
+pageUp 		= l
+pageDown	= y
+delKey		= BS
 caps		= RShift
 
 ;function keys F-keys
@@ -39,67 +40,58 @@ number10	= 0
 number11	= -
 number12	= =
 
+
+
 mediaPrev	= q
 mediaPause	= w
-mediaNext	= e
-volumeDown  = s
-volumeUp 	= d
+mediaNext	= f
+volumeDown  = r
+volumeUp 	= s
 
 audioDevice = a
 audioOut1	= 1
-audioOut2	= 2
+audioOut2	= 3
 
 ; ======== creating hotkeys ========
 
 Hotkey, %fn%%toggleKey%, scriptToggle
 
-;both alt keys work for arrows!
+Hotkey, %fn%%arrowUp%, aUp
+Hotkey, !%fn%%arrowUp%, AaUp
+Hotkey, ^%fn%%arrowUp%, CaUp
+Hotkey, +%fn%%arrowUp%, SaUp
+Hotkey, !^%fn%%arrowUp%, ACaUp
+Hotkey, !+%fn%%arrowUp%, ASaUp
+Hotkey, ^+%fn%%arrowUp%, CSaUp
+Hotkey, !^+%fn%%arrowUp%, ACSaUp
 
-;arrow up
-Hotkey, !%arrowUp%, aUp
-Hotkey, >!<!%arrowUp%, AaUp
-Hotkey, ^!%arrowUp%, CaUp
-Hotkey, +!%arrowUp%, SaUp
-Hotkey, >!^<!%arrowUp%, ACaUp
-Hotkey, >!+<!%arrowUp%, ASaUp
-Hotkey, ^+!%arrowUp%, CSaUp
-Hotkey, >!^+<!%arrowUp%, ACSaUp
+Hotkey, %fn%%arrowDown%, aDown
+Hotkey, !%fn%%arrowDown%, AaDown
+Hotkey, ^%fn%%arrowDown%, CaDown
+Hotkey, +%fn%%arrowDown%, SaDown
+Hotkey, !^%fn%%arrowDown%, ACaDown
+Hotkey, !+%fn%%arrowDown%, ASaDown
+Hotkey, ^+%fn%%arrowDown%, CSaDown
+Hotkey, !^+%fn%%arrowDown%, ACSaDown
 
-;arrow down
-Hotkey, !%arrowDown%, aDown
-Hotkey, >!<!%arrowDown%, AaDown
-Hotkey, ^!%arrowDown%, CaDown
-Hotkey, +!%arrowDown%, SaDown
-Hotkey, >!^<!%arrowDown%, ACaDown
-Hotkey, >!+<!%arrowDown%, ASaDown
-Hotkey, ^+!%arrowDown%, CSaDown
-Hotkey, >!^+<!%arrowDown%, ACSaDown
+Hotkey, %fn%%arrowLeft%, aLeft
+Hotkey, !%fn%%arrowLeft%, AaLeft
+Hotkey, ^%fn%%arrowLeft%, CaLeft
+Hotkey, +%fn%%arrowLeft%, SaLeft
+Hotkey, !^%fn%%arrowLeft%, ACaLeft
+Hotkey, !+%fn%%arrowLeft%, ASaLeft
+Hotkey, ^+%fn%%arrowLeft%, CSaLeft
+Hotkey, !^+%fn%%arrowLeft%, ACSaLeft
 
-;arrow left
-Hotkey, !%arrowLeft%, aLeft
-Hotkey, >!<!%arrowLeft%, AaLeft
-Hotkey, ^!%arrowLeft%, CaLeft
-Hotkey, +!%arrowLeft%, SaLeft
-Hotkey, >!^<!%arrowLeft%, ACaLeft
-Hotkey, >!+<!%arrowLeft%, ASaLeft
-Hotkey, ^+!%arrowLeft%, CSaLeft
-Hotkey, >!^+<!%arrowLeft%, ACSaLeft
+Hotkey, %fn%%arrowRight%, aRight
+Hotkey, !%fn%%arrowRight%, AaRight
+Hotkey, ^%fn%%arrowRight%, CaRight
+Hotkey, +%fn%%arrowRight%, SaRight
+Hotkey, !^%fn%%arrowRight%, ACaRight
+Hotkey, !+%fn%%arrowRight%, ASaRight
+Hotkey, ^+%fn%%arrowRight%, CSaRight
+Hotkey, !^+%fn%%arrowRight%, ACSaRight
 
-Hotkey, #!+%arrowLeft%, WSaLeft
-
-;arrow right
-Hotkey, !%arrowRight%, aRight
-Hotkey, >!<!%arrowRight%, AaRight
-Hotkey, ^!%arrowRight%, CaRight
-Hotkey, +!%arrowRight%, SaRight
-Hotkey, >!^<!%arrowRight%, ACaRight
-Hotkey, >!+<!%arrowRight%, ASaRight
-Hotkey, ^+!%arrowRight%, CSaRight
-Hotkey, >!^+<!%arrowRight%, ACSaRight
-
-Hotkey, #!+%arrowRight%, WSaRight
-
-;other funtions
 Hotkey, %fn%%homeKey%, hKey
 Hotkey, ^%fn%%homeKey%, ChKey
 Hotkey, +%fn%%homeKey%, ShKey
@@ -117,6 +109,7 @@ Hotkey, ^%fn%%pageDown%, CpDown
 Hotkey, +%fn%%pageDown%, SpDown
 Hotkey, ^+%fn%%pageDown%, CSpDown
 
+Hotkey, %fn%%delKey%, dKey
 Hotkey, %fn%%caps%, cLock
 
 Hotkey, %fn%%mediaPrev%, mPrev
@@ -125,6 +118,9 @@ Hotkey, %fn%%mediaNext%, mNext
 Hotkey, %fn%%volumeDown%, vDown
 Hotkey, %fn%%volumeUp%, vUp
 Hotkey, %fn%%audioDevice%, aDevice
+
+Hotkey, %fn%space,  sp
+Hotkey, %fnNonModifier%, nothing
 
 Hotkey, %fn%%number1%, function1
 Hotkey, +%fn%%number1%, Sfunction1
@@ -145,37 +141,9 @@ Hotkey, %fn%%number10%, function10
 Hotkey, %fn%%number11%, function11
 Hotkey, %fn%%number12%, function12
 
-Hotkey, %fnNonModifier%, nothing
-
 
 
 return
-
-; other important function
-
-CapsLock:: Send {BackSpace}			
-
-
-; backspace as delete
-<!BS:: Send {Delete}
-
-;üÜ
->!u:: Send {ASC 0252}
-+>!u:: Send {ASC 0220}
-
-;öÖ
->!o:: Send {ASC 0246}
-+>!o:: Send {ASC 0214}
-
-;äÄ
->!a:: Send {ASC 0228}
-+>!a:: Send {ASC 0196}	
-
-;ß
->!s:: Send {ASC 0223}
-
-;¿
->!+/:: Send {ASC 0191}
 
 ; ======== toggle ========
 
@@ -398,15 +366,9 @@ CSpDown:
 	send ^+{PgDn}
 return
 
-
-; windows shift arrow
-
-WSaLeft:
-	send #+{Left}
-return
-
-WSaRight:
-	send #+{Right}
+; delete
+dKey:
+	send {Del}
 return
 
 ; capslock
@@ -536,6 +498,14 @@ return
 	send {U+00AF}\_(ツ)_/{U+00AF}
 return
 
+; ======== disable unwanted behaviour ========
+
 ;disable function key
 nothing:
+return
+
+
+;Disable fn+space (would change language)
+sp:
+	send {Space}
 return
